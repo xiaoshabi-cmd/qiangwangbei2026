@@ -65,5 +65,12 @@ BKZ 需要 `fplll`（本机已编译于 `.deps/install/bin/fplll.exe`，Windows 
 ## 5. 环境与网络备注
 
 - Windows + PowerShell，`py -3`（3.9.13），python-flint 0.6.0，无 Sage，无 fpylll。
-- 本机 git 配了失效代理 `http://127.0.0.1:7890`，访问 GitHub 需绕过：
-  `git -c http.proxy= -c https.proxy= ...`。
+- 本机 `git config --global` 里配的代理 `http://127.0.0.1:7890` **是失效的**（该端口无监听）；
+  实际可用的本地代理是 **`http://127.0.0.1:7897`**（系统代理也是这个）。推送命令：
+
+  ```powershell
+  git -c http.proxy=http://127.0.0.1:7897 -c https.proxy=http://127.0.0.1:7897 push origin main
+  ```
+
+  若代理关闭且直连 `github.com:443` 不通，可临时绕过代理：
+  `git -c http.proxy= -c https.proxy= ...`（`api.github.com:443` 通常仍可达）。
