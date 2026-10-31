@@ -8,3 +8,13 @@ __pycache__/
 
 # 本地工具链（体积大，不入库）
 .deps/
+
+# Python 运行环境
+.venv/
+
+# CodeBuddy 工作数据（不入库）
+.codebuddy/
+
+# crp-11741 超大中间产物（超过 GitHub 100MB 单文件限制）
+crp-11741_bc69f9111bd2916dbcfd027469492846/work/paths.txt
+crp-11741_bc69f9111bd2916dbcfd027469492846/work/states.txt

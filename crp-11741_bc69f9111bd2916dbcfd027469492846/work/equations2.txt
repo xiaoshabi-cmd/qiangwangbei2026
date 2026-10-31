@@ -1,0 +1,224 @@
+CLBLL_L.2Y52.sA152                 <= CLBLL_L_X2Y52_SLICE_X1Y52_A5_FDRE.D
+                                      [CE: (CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0)]
+CLBLL_L.2Y53.sA153                 <= (0 ? 1 : 0)
+                                      [CE: 0]
+CLBLL_L.2Y55.sA155                 <= ((CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0) ? 0 : 1)
+                                      [CE: 1]
+CLBLL_L.4Y42.sA442                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y42.sB442                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y42.sC442                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y43.sA443                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y43.sB443                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y43.sC443                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y44.sA444                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y44.sC444                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y45.sA445                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y45.sB445                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y46.sA446                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y46.sB446                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y46.sC446                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y47.sA447                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y47.sB447                 <= 0
+                                      [CE: 1]
+CLBLL_L.4Y49.sA549                 <= 1   [always]
+CLBLL_L.4Y51.sA451                 <= 0
+                                      [CE: (CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1)]
+CLBLL_L.4Y51.sA551                 <= 0
+                                      [CE: (CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1)]
+CLBLL_L.4Y51.sB451                 <= 0
+                                      [CE: (CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1)]
+CLBLL_L.4Y51.sB551                 <= 0
+                                      [CE: (CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1)]
+CLBLL_L.4Y51.sC451                 <= 0
+                                      [CE: (CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1)]
+CLBLL_L.4Y51.sD451                 <= 0
+                                      [CE: (CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1)]
+CLBLL_L.4Y52.sA552                 <= CLBLL_L_X4Y52_SLICE_X5Y52_A5_FDRE.D
+                                      [CE: 0]
+CLBLL_L.4Y52.sA552                 <= (CLBLL_L_X4Y52_SLICE_X5Y52_A6 ? 1 : 0)
+                                      [CE: 0]
+CLBLL_L.4Y52.sB552                 <= CLBLL_L_X4Y52_SLICE_X5Y52_B5_FDRE.D
+                                      [CE: 0]
+CLBLL_L.4Y52.sB552                 <= (CLBLL_L_X4Y52_SLICE_X5Y52_B6 ? 1 : 0)
+                                      [CE: 0]
+CLBLL_L.4Y52.sC552                 <= CLBLL_L.2Y53.sA153
+                                      [CE: 0]
+CLBLL_L.4Y52.sC552                 <= (CLBLL_L_X4Y52_SLICE_X5Y52_C6 ? 1 : 0)
+                                      [CE: 0]
+CLBLL_L.4Y52.sD552                 <= CLBLL_L_X4Y52_SLICE_X5Y52_DX
+                                      [CE: 0]
+CLBLL_L.4Y54.sA454                 <= CLBLL_L_X4Y54_SLICE_X4Y54_AX
+                                      [CE: 1]
+CLBLL_L.4Y55.sA455                 <= 1
+                                      [CE: 1]
+CLBLL_L_X2Y52_SLICE_X1Y52_A1       <= CLBLL_L_X2Y52_SLICE_X1Y52_A4
+                                      [CE: 1]
+CLBLL_L_X2Y52_SLICE_X1Y52_A3       <= CLBLL_L_X2Y53_SLICE_X0Y53_A5_FDRE.D
+                                      [CE: (CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0)]
+CLBLL_L_X2Y52_SLICE_X1Y52_A4       <= CLBLM_R.3Y51.sA351
+                                      [CE: 1]
+CLBLL_L_X2Y52_SLICE_X1Y52_A5       <= CLBLM_R_X3Y54_SLICE_X3Y54_A5_FDRE.D
+                                      [CE: (CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0)]
+CLBLL_L_X2Y52_SLICE_X1Y52_A5_FDRE.D <= 0
+                                      [CE: (CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0)]
+CLBLL_L_X2Y53_SLICE_X0Y53_A4       <= CLBLL_L_X2Y53_SLICE_X0Y53_A6
+                                      [CE: 0]
+CLBLL_L_X2Y53_SLICE_X0Y53_A5_FDRE.D <= (CLBLL_L_X2Y53_SLICE_X0Y53_A6 ? 1 : 0)
+                                      [CE: (CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0)]
+CLBLL_L_X2Y53_SLICE_X1Y53_A1       <= CLBLL_L_X2Y53_SLICE_X1Y53_A5
+                                      [CE: 0]
+CLBLL_L_X2Y53_SLICE_X1Y53_A5       <= CLBLM_R_X3Y53_SLICE_X3Y53_BX
+                                      [CE: 0]
+CLBLL_L_X2Y55_SLICE_X1Y55_A2       <= ((CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0) ? 0 : 1)
+                                      [CE: 1]
+CLBLL_L_X2Y55_SLICE_X1Y55_B1       <= ((CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0) ? 0 : 1)
+                                      [CE: 1]
+CLBLL_L_X2Y55_SLICE_X1Y55_C1       <= ((CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0) ? 0 : 1)
+                                      [CE: 1]
+CLBLL_L_X4Y42_SLICE_X4Y42_D5       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y42_SLICE_X5Y42_D6       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y43_SLICE_X4Y43_D6       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y44_SLICE_X4Y44_D3       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y44_SLICE_X4Y44_D5       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y44_SLICE_X4Y44_D6       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y46_SLICE_X4Y46_D3       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y46_SLICE_X4Y46_D5       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y46_SLICE_X5Y46_A6       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y47_SLICE_X4Y47_D2       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y47_SLICE_X4Y47_D4       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y49_SLICE_X5Y49_B2       <= 0   [always]
+CLBLL_L_X4Y50_SLICE_X4Y50_A1       <= 0
+                                      [CE: ((CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1) ? 1 : 0)]
+CLBLL_L_X4Y50_SLICE_X4Y50_B6       <= 0
+                                      [CE: ((CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1) ? 1 : 0)]
+CLBLL_L_X4Y50_SLICE_X4Y50_C6       <= 0
+                                      [CE: ((CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1) ? 1 : 0)]
+CLBLL_L_X4Y50_SLICE_X4Y50_D6       <= 0
+                                      [CE: ((CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1) ? 1 : 0)]
+CLBLL_L_X4Y52_SLICE_X4Y52_A3       <= 0
+                                      [CE: (0 ? 1 : 0)]
+CLBLL_L_X4Y52_SLICE_X4Y52_D1       <= 0
+                                      [CE: 0]
+CLBLL_L_X4Y52_SLICE_X5Y52_A5_FDRE.D <= CLBLL_L_X4Y52_SLICE_X5Y52_B5_FDRE.D
+                                      [CE: (0 ? 1 : 0)]
+CLBLL_L_X4Y52_SLICE_X5Y52_A6       <= CLBLL_L_X4Y52_SLICE_X5Y52_B6
+                                      [CE: (0 ? 1 : 0)]
+CLBLL_L_X4Y52_SLICE_X5Y52_B5_FDRE.D <= CLBLL_L.2Y53.sA153
+                                      [CE: (0 ? 1 : 0)]
+CLBLL_L_X4Y52_SLICE_X5Y52_B6       <= (CLBLL_L_X4Y52_SLICE_X5Y52_C6 ? 1 : 0)
+                                      [CE: (0 ? 1 : 0)]
+CLBLL_L_X4Y52_SLICE_X5Y52_C6       <= (CLBLL_L_X4Y52_SLICE_X5Y52_DX ? 1 : 0)
+                                      [CE: (0 ? 1 : 0)]
+CLBLL_L_X4Y52_SLICE_X5Y52_DX       <= CLBLL_L_X4Y52_SLICE_X5Y52_A5_FDRE.D
+                                      [CE: (0 ? 1 : 0)]
+CLBLL_L_X4Y53_SLICE_X4Y53_A2       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y53_SLICE_X4Y53_A4       <= 1
+                                      [CE: 1]
+CLBLL_L_X4Y53_SLICE_X4Y53_A5       <= 0
+                                      [CE: 1]
+CLBLL_L_X4Y54_SLICE_X4Y54_AX       <= CLBLM_R_X3Y54_SLICE_X2Y54_CX
+                                      [CE: 1]
+CLBLM_R.3Y49.sA349                 <= 0
+                                      [CE: (CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1)]
+CLBLM_R.3Y50.sC250                 <= 0
+                                      [CE: (CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1)]
+CLBLM_R.3Y51.sA251.SRL[6]          <= CLBLL_L.4Y54.sA454
+                                      [CE: 1]
+CLBLM_R.3Y51.sA351                 <= (CLBLM_R_X3Y51_SLICE_X3Y51_A3 ? 1 : 0)
+                                      [CE: 1]
+CLBLM_R.3Y51.sB251.SRL[6]          <= (((((CLBLM_R_X3Y56_SLICE_X2Y56_A3 ? 1 : 0) ? ((CLBLM_R_X3Y56_SLICE_X2Y56_A1 ? 0 : 1) ? ((CLBLL_L.4Y55.sA455 ? 1 : 0) ? ((CLBLL_L.2Y55.sA155 ? 0 : 1) ? ((CLBLL_L_X2Y55_SLICE_X1Y55_A2 ? 1 : 0) ? ((CLBLL_L_X2Y55_SLICE_X1Y55_B1 ? 0 : 1) ? ((CLBLL_L_X2Y55_SLICE_X1Y55_C1 ? 1 : 0) ? 1 : (CLBLL_L_X2Y55_SLICE_X1Y55_C1 ? 0 : 1)) : 0) : (CLBLL_L_X2Y55_SLICE_X1Y55_A2 ? 0 : 1)) : 0) : (CLBLL_L.4Y55.sA455 ? 0 : 1)) : 0) : (CLBLM_R_X3Y56_SLICE_X2Y56_A3 ? 0 : 1)) ? 1 : 0) ? 1 : 0) ? 0 : 1)
+                                      [CE: 1]
+CLBLM_R.3Y52.sA252.SRL[6]          <= CLBLM_R_X3Y52_SLICE_X2Y52_A6SRL.D
+                                      [CE: 1]
+CLBLM_R.3Y52.sA352                 <= (CLBLM_R_X3Y52_SLICE_X3Y52_A2 ? 1 : 0)
+                                      [CE: 1]
+CLBLM_R.3Y52.sB252.SRL[6]          <= CLBLL_L_X2Y52_SLICE_X1Y52_A1
+                                      [CE: 1]
+CLBLM_R.3Y52.sC252.SRL[6]          <= 1
+                                      [CE: 1]
+CLBLM_R.3Y53.sA253.SRL[6]          <= CLBLL_L_X2Y53_SLICE_X0Y53_A4
+                                      [CE: 0]
+CLBLM_R.3Y53.sA353                 <= 1
+                                      [CE: 0]
+CLBLM_R.3Y53.sB253.SRL[6]          <= CLBLM_R_X3Y53_SLICE_X2Y53_B6SRL.D
+                                      [CE: 0]
+CLBLM_R.3Y53.sC253.SRL[6]          <= CLBLM_R_X3Y53_SLICE_X2Y53_C6SRL.D
+                                      [CE: 0]
+CLBLM_R.5Y51.sA651                 <= CLBLL_L.4Y52.sA552
+                                      [CE: 0]
+CLBLM_R.5Y51.sA751                 <= 1
+                                      [CE: 1]
+CLBLM_R.5Y51.sB651                 <= CLBLL_L.4Y52.sA552
+                                      [CE: 0]
+CLBLM_R.5Y51.sB651                 <= (CLBLL_L.4Y52.sB552 ? 1 : 0)
+                                      [CE: 0]
+CLBLM_R.5Y51.sC651                 <= CLBLL_L.4Y52.sB552
+                                      [CE: 0]
+CLBLM_R.5Y51.sC651                 <= (CLBLL_L.4Y52.sC552 ? 1 : 0)
+                                      [CE: 0]
+CLBLM_R.5Y51.sD651                 <= CLBLL_L.4Y52.sD552
+                                      [CE: 0]
+CLBLM_R.5Y52.sA652.SRL[6]          <= CLBLL_L_X4Y52_SLICE_X5Y52_A6
+                                      [CE: (0 ? 1 : 0)]
+CLBLM_R_X3Y49_SLICE_X3Y49_B2       <= 0
+                                      [CE: (CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1)]
+CLBLM_R_X3Y49_SLICE_X3Y49_B5       <= 0
+                                      [CE: (CLBLL_L_X4Y42_SLICE_X4Y42_A2 ? 0 : 1)]
+CLBLM_R_X3Y52_SLICE_X3Y52_A2       <= CLBLM_R_X3Y52_SLICE_X3Y52_BX
+                                      [CE: 1]
+CLBLM_R_X3Y52_SLICE_X3Y52_BX       <= (CLBLM_R_X3Y52_SLICE_X2Y52_A ? 1 : 0)
+                                      [CE: 1]
+CLBLM_R_X3Y53_SLICE_X2Y53_C6SRL.D  <= CLBLM_R.3Y53.sA353
+                                      [CE: 0]
+CLBLM_R_X3Y53_SLICE_X3Y53_BX       <= CLBLM_R_X3Y55_SLICE_X3Y55_AX
+                                      [CE: 0]
+CLBLM_R_X3Y53_SLICE_X3Y53_D5       <= CLBLM_R_X3Y55_SLICE_X3Y55_CX
+                                      [CE: 0]
+CLBLM_R_X3Y54_SLICE_X2Y54_A2       <= CLBLM_R_X3Y51_SLICE_X2Y51_A
+                                      [CE: 1]
+CLBLM_R_X3Y54_SLICE_X2Y54_CX       <= CLBLM_R_X3Y51_SLICE_X2Y51_B
+                                      [CE: 1]
+CLBLM_R_X3Y54_SLICE_X3Y54_A5_FDRE.D <= (CLBLL_L_X4Y54_SLICE_X4Y54_AX ? 1 : 0)
+                                      [CE: (CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0)]
+CLBLM_R_X3Y55_SLICE_X3Y55_AX       <= (CLBLM_R_X3Y53_SLICE_X3Y53_D5 ? 1 : 0)
+                                      [CE: 0]
+CLBLM_R_X3Y55_SLICE_X3Y55_CX       <= (CLBLM_R_X3Y53_SLICE_X2Y53_A ? 1 : 0)
+                                      [CE: 0]
+CLBLM_R_X3Y56_SLICE_X2Y56_A1       <= ((CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0) ? 0 : 1)
+                                      [CE: 1]
+CLBLM_R_X3Y56_SLICE_X2Y56_A3       <= ((CLBLL_L_X4Y53_SLICE_X4Y53_A5 ? 1 : 0) ? 0 : 1)
+                                      [CE: 1]
+CLBLM_R_X5Y51_SLICE_X6Y51_D3       <= (CLBLL_L.4Y52.sC552 ? 1 : 0)
+                                      [CE: 0]
+CLBLM_R_X5Y53_SLICE_X6Y53_A5       <= 0
+                                      [CE: 0]
+CLBLM_R_X5Y53_SLICE_X6Y53_B6       <= (0 ? 1 : 0)
+                                      [CE: 0]
+CLBLM_R_X5Y53_SLICE_X6Y53_C6       <= 0
+                                      [CE: 0]

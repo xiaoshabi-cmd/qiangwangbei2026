@@ -1,0 +1,9 @@
+read_verilog cells_sim.v
+read_verilog crp.v
+hierarchy -check -top top
+proc
+flatten
+opt_clean
+check
+stat
+write_json flat.json
