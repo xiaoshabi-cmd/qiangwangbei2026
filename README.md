@@ -1,76 +1,48 @@
-# 强网杯 2026 · hoRRibleRing —— 解题过程与交接文档
+# 强网杯 2026 解题工作区
 
-> 状态：**未解出**（flag 未恢复）。本仓库是对该题完整分析过程的归档，核心价值是
-> **已证明的负面结论**与**可复现的量化难度模型**，避免后续接手者重复劳动。
+第十届"强网杯"全国网络安全挑战赛（线上赛）Crypto 方向的解题过程归档。
+本仓库为多题 monorepo，每题独立目录，含完整复现材料与交接文档。
 
-## 1. 一句话结论
+## 题目总览
 
-题目（`samples.txt` 实际数据）等价于：对 **336 个互相独立**的 RLWE 样本逐个判断
-"`b = a·s + e` 且 `s,e` 都很小"是否成立。单样本判定是 dim = 1024、det = p^512 的 BDD 问题，
-**gap ≈ 2253**，需要 **BKZ-β≈150**；而 LLL 的能力上限只到 dim≈390。因此：
+| 题目 | 目录 | 类型 | 状态 | 入口文档 |
+|---|---|---|---|---|
+| **crp-11741**（Cryptarithm） | `crp-11741_bc69f9111bd2916dbcfd027469492846/` | FPGA bitstream 逆向 + 流密码 | ⏳ 进行中（电路已识别为 A5/1 型，变体参数未对齐） | [HANDOVER.md](crp-11741_bc69f9111bd2916dbcfd027469492846/HANDOVER.md) |
+| **frozen** | `frozen_02136a685ccd425e537aa0735795019f/` | Falcon 结构逆向 + 位翻转纠错 | ✅ 已解出 | [writeup.md](frozen_02136a685ccd425e537aa0735795019f/writeup.md) |
+| **vmshare**（SIMD_TINY_BLOCK_IS_A_NIGHTMARE） | `vmshare_6d3416fb746f85cad8020e41571f8b7b/` | AVX2 SIMD 逆向 | ✅ 已解出 | [writeup.md](vmshare_6d3416fb746f85cad8020e41571f8b7b/writeup.md) |
+| **hoRRibleRing** | `horriblering/` | RLWE 样本判定 / 格攻击 | ❌ 未解出（负面结论归档，解出概率评估 10%–15%） | [README.md](horriblering/README.md) |
 
-- **纯格攻击不可行**（差 10^10 量级，且要跑 336 次）；
-- 所有"用环的可约性降维"的路线（CRT/商环投影、理想消元、对偶攻击）**已被证明封死**；
-- 唯一的未穷尽线索是题面提示 `Notice that there are 3 'R's in the title too :(`，
-  与数据中唯一的非平凡"3"结构（**3 个偶四次自对称因子**）吻合，但其攻击用途未找到。
+## 各题一句话
 
-综合评估解出概率：**10%–15%**。
+- **crp-11741**：给定 Xilinx 7 系列 bitstream，逆向出 UART 接口的 A5/1 型流密码电路；已完成 bit→FASM→网表→模拟器全流水线，两个已知答案向量已标定，当前阻塞点是电路与教科书 A5/1 的变体差异（需从网表精确提取 taps）。
+- **frozen**：从被随机位翻转污染、且截去头部 1024 个 double 的内存转储中恢复 Falcon 私钥矩阵 `D = f·adj(f) + g·adj(g)`，解密得 flag。
+- **vmshare**：逆向使用 AVX2 的 x86-64 ELF 加密器，恢复 SIMD 变换，对 32 字节密文求逆，flag 形如 `flag{XXXXXXX_YYYYYYY}`（两组 7 位十六进制）。
+- **hoRRibleRing**：336 个互相独立的 RLWE 样本逐位编码 flag；单样本为 dim=1024 的 BDD（gap≈2253），纯格攻击不可行，环可约性降维路线已全部证伪，详见负面结论清单。
 
-## 2. 题目机制（已逐行确认）
-
-```python
-p = 0x3ac01f87                       # 985669511，素数
-PR.<x> = PolynomialRing(GF(p))
-f = x^512 + ...                      # 512 次，随机系数
-def F0():                            # bit '0' -> LWE
-    D = DiscreteGaussianDistributionIntegerSampler(sigma=3.371)
-    s = PR([D() for _ in range(512)])   # 每次调用都重新采样！
-    e = PR([D() for _ in range(512)])
-    a = PR([randbelow(p) for _ in range(512)])
-    b = (a*s + e) % f
-    return [a.list(), b.list()]
-def F1():                            # bit '1' -> 全随机
-```
-
-输出 = `bin(bytes_to_long(flag))[2:].zfill(len(flag)*8)` 的每一位对应的样本，共 **336 个**
-（⇒ flag 长 42 字节）。索引 `j` ↔ 第 `j` 位 ↔ 第 `j//8` 字节的第 `7-(j%8)` 位。
-
-**关键点：`s, e, a` 每个样本都是全新的，不存在共享密钥**（已用三种独立检验确认，见 `docs/02`）。
-
-## 3. 仓库结构
+## 目录结构
 
 ```
-README.md                      本文件
-docs/01-交接文档.md             主交接文档（背景/进展/结论/后续）
-docs/02-负面结论清单.md          已排除的假设表（查重用，勿重复）
-docs/03-格攻击定量分析.md        参数推导、成本模型、实测标定数据
-scripts/                       复现用脚本（python-flint + fplll）
-data/task.sage                 题面原始代码
-data/samples.txt               336 个样本（题面输出）
-data/factors.pkl               f 在 GF(p) 上的 261 个不可约因子（预计算）
+README.md                     本文件（总索引）
+.gitignore
+horriblering/                 hoRRibleRing 题目归档
+  ├─ README.md                题目主交接文档
+  ├─ docs/                    01-交接文档 / 02-负面结论清单 / 03-格攻击定量分析
+  ├─ scripts/                 复现脚本（python-flint + fplll）
+  └─ data/                    task.sage、samples.txt、factors.pkl
+crp-11741_bc69f9111bd2916dbcfd027469492846/
+  ├─ Cryptarithm.bit          题目原始 bitstream
+  ├─ HANDOVER.md              交接文档（含文献索引与下一步建议）
+  └─ work/                    逆向流水线：bit→fasm→网表→模拟器→A5/1 分析
+frozen_02136a685ccd425e537aa0735795019f/
+  └─ writeup.md、task.py、solve_frozen.py 等
+vmshare_6d3416fb746f85cad8020e41571f8b7b/
+  └─ writeup.md、encryptor、cipher.bin、solve.c 等
 ```
 
-## 4. 快速复现
+## 复现环境备注
 
-```powershell
-py -3 -m pip install python-flint          # 0.6.0 已测
-py -3 scripts/lll1.py 0                     # 对样本 0 做 Kannan 嵌入 + LLL（会很久）
-py -3 scripts/proj1.py                      # 复现"CRT 投影无效"的证据
-py -3 scripts/cal.py                        # 复现 LLL 阈值标定
-```
-
-BKZ 需要 `fplll`（本机已编译于 `.deps/install/bin/fplll.exe`，Windows 下需
-`PATH+=C:\msys64\usr\bin;C:\msys64\mingw64\bin`）。
-
-## 5. 环境与网络备注
-
-- Windows + PowerShell，`py -3`（3.9.13），python-flint 0.6.0，无 Sage，无 fpylll。
-- 本机 `git config --global` 里配的代理 `http://127.0.0.1:7890` **是失效的**（该端口无监听）；
-  实际可用的本地代理是 **`http://127.0.0.1:7897`**（系统代理也是这个）。推送命令：
-
-  ```powershell
-  git -c http.proxy=http://127.0.0.1:7897 -c https.proxy=http://127.0.0.1:7897 push origin main
-  ```
-
-  若代理关闭且直连 `github.com:443` 不通，可临时绕过代理：
-  `git -c http.proxy= -c https.proxy= ...`（`api.github.com:443` 通常仍可达）。
+- crp-11741：Python 3.14 + `fasm`/prjxray 数据库 + yosys；详见其 `HANDOVER.md` §7。
+- hoRRibleRing：Windows + `py -3`（3.9.13）+ python-flint 0.6.0；BKZ 需自编译 fplll。
+- GitHub 推送走本地代理 `http://127.0.0.1:7897`：
+  `git -c http.proxy=http://127.0.0.1:7897 push origin main`
+- crp-11741 的 `work/paths.txt`（1.7 GB）与 `work/states.txt`（110 MB）超出 GitHub 限制，不入库。
