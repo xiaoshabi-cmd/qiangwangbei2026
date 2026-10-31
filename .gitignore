@@ -1,0 +1,10 @@
+# 生成物
+samples.pkl
+*.lat
+*.reduced.lat
+tmp/
+__pycache__/
+*.pyc
+
+# 本地工具链（体积大，不入库）
+.deps/
